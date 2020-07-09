@@ -1,28 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-class App extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      cash:0
-    }
-  }
+const App = props =>{
+  const [cash, setCash]=useState(0);
 
-  oneUp=()=>{
-    this.setState({
-      cash: this.state.cash += 1
-    })
-  }
-
-  render(){
-    const {cash} = this.state
-  return (
-    <div className="App">
-      <p>Current balance: {cash}</p>
-      <button onClick = {this.oneUp}>this is button</button>
-    </div>
+return(
+  <div>
+    <p>current balance: {cash}</p>
+    <button onClick ={()=>setCash(cash+1)}>button</button>
+  </div>
   );
-  }
 }
-
-export default App;
+export default App
