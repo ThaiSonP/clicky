@@ -10,7 +10,7 @@ const App = props =>{
 return(
   <div>
     <p>current balance: {cash}</p>
-    <button onClick ={()=>plusOne()}>button</button>
+    <button onClick ={()=>setCash(currentCount => currentCount+1)}>button</button>
   </div>
   );
 }
