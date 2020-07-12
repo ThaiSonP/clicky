@@ -20,23 +20,30 @@ const ButtonOne = (props)=>{
     )
   }
 
-  console.log(props)
+  const upgradeButton = ()=>{
+    return(
+      upgrade().then(
+        setB1(currentUp =>({
+          cost: Math.ceil(currentUp.cost * 1.5),
+          level: currentUp.level+1
+        }))
+      )
+    )
+  }
 
   if(props.cash<cost){
     return(
       <div>
-      <p>level:{level}</p> <p>cost:{cost}</p>
-      <button onClick={()=>upButton()}>up cost</button>
+      <p>level:{level} cost:{cost}</p>
       </div>
     )
   }
   return(
     <div>
-      <p>level:{level}</p> <p>cost:{cost}</p>
-      <button onClick = {()=>upgrade()}>
+      <p>level:{level} cost:{cost}</p>
+      <button onClick = {()=>upgradeButton()}>
         increase increment
       </button>
-      <button onClick={()=>upButton()}>up cost</button>
     </div>
   )
 }
